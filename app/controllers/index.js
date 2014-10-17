@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import ENV from "../config/environment";
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(Ember.PromiseProxyMixin, {
   queryParams: ['query'],
+  query: "beef",
 
   watchQuery: function() {
-    Em.run.debounce(this, this.runQuery, 400);
+    Ember.run.debounce(this, this.runQuery, 400);
   }.observes("query"),
 
   runQuery: function(){
@@ -13,7 +14,11 @@ export default Ember.Controller.extend({
   },
 
   filteredRecipes: function(){
+    this.set("loaded", false);
     var queryText = this.get('query');
     return this.store.find("recipe", {'qs': queryText, 'auth_token': ENV.WEEATT_AUTH_TOKEN});
-  }.property("nextQuery")
+
+  }.property("nextQuery"),
+
+
 });

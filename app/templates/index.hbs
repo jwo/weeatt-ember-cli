@@ -6,5 +6,13 @@
 {{#each recipe in filteredRecipes}}
   <h2>{{recipe.name}}</h2>
   <pre>{{recipe.ingredients}}</pre>
-  <pre>{{recipe.instructions}}</pre>
+  <div>{{recipe.instructions}}</div>
 {{/each}}
+
+{{#if isPending}}
+  <div><strong>...Loading...</strong></div>
+{{else}}
+  {{#unless filteredRecipes }}
+    <em>No recipes found with {{query}}</em>
+  {{/unless}}
+{{/if}}
