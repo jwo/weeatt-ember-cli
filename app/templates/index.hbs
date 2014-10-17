@@ -1,0 +1,10 @@
+<h1>Recipes</h1>
+
+<label>Search</label>
+{{input type="text" class="form-control" value=query }}
+
+{{#each recipe in filteredRecipes}}
+  <h2>{{recipe.name}}</h2>
+  <pre>{{recipe.ingredients}}</pre>
+  <pre>{{recipe.instructions}}</pre>
+{{/each}}
