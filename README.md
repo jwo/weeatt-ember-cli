@@ -1,8 +1,9 @@
-# Cart
+# We Eatt Ember-cli
 
-This README outlines the details of collaborating on this Ember application.
+Exploration of ember-cli, using the We Eatt API to search for items instantly.
 
-A short introduction of this app could easily go here.
+WIP, with no styling.
+
 
 ## Prerequisites
 
