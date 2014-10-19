@@ -1,9 +1,4 @@
 {
   "directory": "bower_components",
-  "analytics": false,
-  "dependencies": {
-    "bourbon": "3.2.3",
-    "neat": "1.5.1",
-    "bitters": "0.10.1"
-  }
+  "analytics": false
 }
