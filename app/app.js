@@ -16,8 +16,7 @@ var App = Ember.Application.extend({
 
 DS.RESTAdapter.reopen({
   namespace: 'api/v1',
-  host: 'http://www.weeatt.com',
-  //host: 'http://0.0.0.0:5000',
+  //host: 'http://www.weeatt.com',
   headers: {
     'x-api-key': ENV.WEEATT_API_KEY,
     'Accept': 'application/json',
