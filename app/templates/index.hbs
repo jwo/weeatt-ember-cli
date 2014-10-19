@@ -1,13 +1,30 @@
-<h1>Recipes</h1>
 
-<label>Search</label>
-{{input type="text" class="form-control" value=query }}
 
-{{#each recipe in filteredRecipes}}
-  <h2>{{recipe.name}}</h2>
-  <pre>{{recipe.ingredients}}</pre>
-  <div>{{recipe.instructions}}</div>
-{{/each}}
+
+
+ <div class="search-bar">
+  <div class="search-and-submit">
+
+    {{input type="search" value=query placeholder="Search" }}
+    <button type="submit">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+    </button>
+  </div>
+</div>
+
+
+<ul class="recipes">
+
+  {{#each recipe in filteredRecipes}}
+    <li>
+      <h2 class="title">{{recipe.name}}</h2>
+      <pre>{{recipe.ingredients}}</pre>
+      <div>
+        {{break-lines recipe.instructions}}
+      </div>
+    </li>
+  {{/each}}
+</ul>
 
 {{#if isPending}}
   <div><strong>...Loading...</strong></div>

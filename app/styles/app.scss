@@ -1,0 +1,30 @@
+@import "./bower_components/bourbon/dist/bourbon";
+@import "./bower_components/bitters/app/assets/stylesheets/grid-settings";
+@import "./bower_components/bitters/app/assets/stylesheets/base";
+@import "./bower_components/neat/app/assets/stylesheets/neat";
+@import "footer";
+@import "search-bar";
+@import "type";
+
+.wrapper {
+  @include outer-container;
+}
+
+article {
+   @include span-columns(12);
+}
+
+.recipes {
+  h2.title {
+    padding-top: 2rem;
+    border-top: 1px solid $base-border-color;
+    margin-top: 3rem;
+  }
+  li:first-of-type{
+    h2.title {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 1rem;
+    }
+  }
+}
