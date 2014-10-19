@@ -1,6 +1,6 @@
 @import "./bower_components/bourbon/dist/bourbon";
-@import "./bower_components/bitters/app/assets/stylesheets/grid-settings";
-@import "./bower_components/bitters/app/assets/stylesheets/base";
+@import "./vendor/css/base/grid-settings";
+@import "./vendor/css/base/base";
 @import "./bower_components/neat/app/assets/stylesheets/neat";
 @import "footer";
 @import "search-bar";

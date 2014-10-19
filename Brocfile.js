@@ -8,7 +8,8 @@ var compileSass = require('broccoli-sass');
 var mergeTrees = require('broccoli-merge-trees');
 
 var sassSources = [
-  'app/styles'
+  'app/styles',
+  'vendor/css'
 ]
 
 var appCss = compileSass( sassSources , 'app.scss', 'assets/app.css');
