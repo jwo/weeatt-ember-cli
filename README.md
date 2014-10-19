@@ -2,7 +2,11 @@
 
 Exploration of ember-cli, using the We Eatt API to search for items instantly.
 
-WIP, with no styling.
+* Styled with Bourbon
+* Uses a debounce technique to make sure typing "bread" doesn't query the
+  server 5 times
+* Live search technique
+* Loads from the .env file
 
 
 ## Prerequisites
@@ -18,6 +22,7 @@ You will need the following things properly installed on your computer.
 * change into the new directory
 * `npm install`
 * `bower install`
+* `cp .env.sample .env` and edit .env
 
 ## Running / Development
 
