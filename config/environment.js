@@ -40,7 +40,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.WEEATT_API_KEY = process.env.WEEATT_API_KEY,
+    ENV.WEEATT_AUTH_TOKEN = process.env.WEEATT_AUTH_TOKEN
   }
 
   return ENV;
