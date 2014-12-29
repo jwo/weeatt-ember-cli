@@ -1,5 +1,5 @@
 .search-bar {
-  $search-bar-border-color: $base-border-color;
+  $search-bar-border-color: $base-accent-color;
   $search-bar-border: 1px solid $search-bar-border-color;
   $search-bar-background: lighten($search-bar-border-color, 10);
 
