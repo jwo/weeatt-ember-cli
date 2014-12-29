@@ -1,8 +1,8 @@
 
 
 
-
- <div class="search-bar">
+<br/>
+<div class="search-bar">
   <div class="search-and-submit">
 
     {{input type="search" value=query placeholder="Search" }}
@@ -18,10 +18,8 @@
   {{#each recipe in filteredRecipes}}
     <li>
       <h2 class="title">{{recipe.name}}</h2>
-      <pre>{{recipe.ingredients}}</pre>
-      <div>
-        {{break-lines recipe.instructions}}
-      </div>
+      <p>{{break-lines recipe.ingredients}}</p>
+      <p>{{break-lines recipe.instructions}}</p>
     </li>
   {{/each}}
 </ul>

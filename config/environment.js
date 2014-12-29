@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'cart',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    cordova: {
+      rebuildOnChange: false,
+      emulate: false
     }
   };
 
@@ -40,8 +45,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.WEEATT_API_KEY = process.env.WEEATT_API_KEY,
-    ENV.WEEATT_AUTH_TOKEN = process.env.WEEATT_AUTH_TOKEN
+    ENV.WEEATT_API_KEY='f06ff8aad778'
+    ENV.WEEATT_AUTH_TOKEN='aDZTf4BdHGA1apkeU0UY'
+
   }
 
   return ENV;

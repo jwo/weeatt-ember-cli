@@ -1,10 +1,26 @@
+@import "./vendor/css/reset";
 @import "./bower_components/bourbon/dist/bourbon";
 @import "./vendor/css/base/grid-settings";
 @import "./vendor/css/base/base";
 @import "./bower_components/neat/app/assets/stylesheets/neat";
+$midnight_blue: #2C3E50;
+$base-accent-color: $midnight_blue;
+
+@import "header";
 @import "footer";
 @import "search-bar";
 @import "type";
+@import "loading";
+
+
+
+
+
+header {
+  h1 {
+    text-align: center;
+  }
+}
 
 .wrapper {
   @include outer-container;
@@ -12,6 +28,10 @@
 
 article {
    @include span-columns(12);
+   .search-bar {
+     margin: 3rem 0x;
+     width: 100%;
+   }
 }
 
 .recipes {
