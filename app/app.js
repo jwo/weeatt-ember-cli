@@ -34,4 +34,5 @@ DS.RESTSerializer.reopen({
 
 loadInitializers(App, config.modulePrefix);
 
+
 export default App;

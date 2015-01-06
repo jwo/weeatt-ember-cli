@@ -3,22 +3,41 @@ import ENV from "../config/environment";
 
 export default Ember.Controller.extend(Ember.PromiseProxyMixin, {
   queryParams: ['query'],
-  query: "beef",
+  query: "",
+  isPending: false,
+
+  hasQuery: function() {
+    return (this.get("query").length > 0);
+  }.property("query"),
 
   watchQuery: function() {
+    this.set("isPending", true);
+    this.set("model", Ember.A());
     Ember.run.debounce(this, this.runQuery, 400);
   }.observes("query"),
 
   runQuery: function(){
-    this.set('nextQuery', this.get('query'));
-  },
 
-  filteredRecipes: function(){
-    this.set("loaded", false);
     var queryText = this.get('query');
-    return this.store.find("recipe", {'qs': queryText, 'auth_token': ENV.WEEATT_AUTH_TOKEN});
+    var that = this;
+    that.set("isPending", true);
 
-  }.property("nextQuery"),
+    new Ember.RSVP.Promise(function(resolve, reject){
 
+      that.store.find("recipe", {'qs': queryText, 'auth_token': ENV.WEEATT_AUTH_TOKEN}).then(function(data){
+        resolve(data);
+      });
+
+    }).then(function(data) {
+      // fullfillment
+      that.set("isPending", false);
+      that.set("model", data);
+
+    }, function(reason){
+      that.set("isPending", false);
+      that.set("model", Ember.A());
+    });
+
+  }
 
 });

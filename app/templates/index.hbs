@@ -12,22 +12,24 @@
   </div>
 </div>
 
-
 <ul class="recipes">
 
-  {{#each recipe in filteredRecipes}}
-    <li>
-      <h2 class="title">{{recipe.name}}</h2>
-      <p>{{break-lines recipe.ingredients}}</p>
-      <p>{{break-lines recipe.instructions}}</p>
-    </li>
+  {{#each recipe in model}}
+  <li>
+    <h2 class="title">{{recipe.name}}</h2>
+    <p>{{break-lines recipe.ingredients}}</p>
+    <p>{{break-lines recipe.instructions}}</p>
+  </li>
   {{/each}}
 </ul>
 
+
 {{#if isPending}}
-  <div><strong>...Loading...</strong></div>
+  {{partial "loader"}}
 {{else}}
-  {{#unless filteredRecipes }}
-    <em>No recipes found with {{query}}</em>
+
+  {{#unless model }}
+    {{#if hasQuery }}<p><br/><br/><br/><em>No recipes found with {{query}}</em></p>{{/if}}
   {{/unless}}
+
 {{/if}}

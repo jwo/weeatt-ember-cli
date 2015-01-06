@@ -1,0 +1,18 @@
+<ul class="recipes">
+
+  {{#each recipe in filteredRecipes}}
+  <li>
+    <h2 class="title">{{recipe.name}}</h2>
+    <p>{{break-lines recipe.ingredients}}</p>
+    <p>{{break-lines recipe.instructions}}</p>
+  </li>
+  {{/each}}
+</ul>
+
+{{#if isPending}}
+<div><strong>...Loading...</strong></div>
+{{else}}
+{{#unless filteredRecipes }}
+<em>No recipes found with {{query}}</em>
+{{/unless}}
+{{/if}}
