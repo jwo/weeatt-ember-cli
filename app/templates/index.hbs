@@ -1,6 +1,3 @@
-
-
-
 <br/>
 <div class="search-bar">
   <div class="search-and-submit">
@@ -12,16 +9,28 @@
   </div>
 </div>
 
-<ul class="recipes">
-
+<div class="cards">
   {{#each recipe in model}}
-  <li>
-    <h2 class="title">{{recipe.name}}</h2>
-    <p>{{break-lines recipe.ingredients}}</p>
-    <p>{{break-lines recipe.instructions}}</p>
-  </li>
+
+    <div class="card">
+      <div class="card-image">
+        {{#link-to "recipe" recipe}}
+          <img {{ bind-attr src=recipe.imageUrl class="recipe.missingImage" }} />
+        {{/link-to}}
+      </div>
+      <div class="card-header">
+        {{#link-to "recipe" recipe}}
+          {{recipe.name}}
+        {{/link-to}}
+      </div>
+      <div class="card-copy">
+        <p>{{recipe.description}}</p>
+      </div>
+    </div>
+
   {{/each}}
-</ul>
+</div>
+
 
 
 {{#if isPending}}

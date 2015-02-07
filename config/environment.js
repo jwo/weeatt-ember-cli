@@ -45,8 +45,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.WEEATT_API_KEY='f06ff8aad778'
-    ENV.WEEATT_AUTH_TOKEN='aDZTf4BdHGA1apkeU0UY'
+
 
   }
 

@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import ENV from "../config/environment";
 
 export default Ember.Controller.extend(Ember.PromiseProxyMixin, {
   queryParams: ['query'],
@@ -22,9 +21,9 @@ export default Ember.Controller.extend(Ember.PromiseProxyMixin, {
     var that = this;
     that.set("isPending", true);
 
-    new Ember.RSVP.Promise(function(resolve, reject){
+    new Ember.RSVP.Promise(function(resolve){
 
-      that.store.find("recipe", {'qs': queryText, 'auth_token': ENV.WEEATT_AUTH_TOKEN}).then(function(data){
+      that.store.find("recipe", {'qs': queryText}).then(function(data){
         resolve(data);
       });
 
@@ -33,7 +32,7 @@ export default Ember.Controller.extend(Ember.PromiseProxyMixin, {
       that.set("isPending", false);
       that.set("model", data);
 
-    }, function(reason){
+    }, function(){
       that.set("isPending", false);
       that.set("model", Ember.A());
     });

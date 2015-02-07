@@ -1,0 +1,25 @@
+<ul class="recipes">
+
+
+
+  <li>
+    <h2 class="title">{{name}}</h2>
+
+    <div class="method">
+      <p>{{break-lines description}}</p>
+      <p>{{break-lines ingredients}}</p>
+      <p>{{break-lines instructions}}</p>
+    </div>
+
+    <div class="photos">
+
+      {{#each url in largeImages}}
+      <img {{ bind-attr src=url }} />
+      {{/each}}
+
+    </div>
+
+
+  </li>
+
+</ul>

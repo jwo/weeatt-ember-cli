@@ -21,6 +21,16 @@ DS.RESTAdapter.reopen({
     'x-api-key': ENV.WEEATT_API_KEY,
     'Accept': 'application/json',
     'Content-Type': 'application/json'
+  },
+  ajax: function(url, type, hash) {
+    if (Ember.isEmpty(hash)) {
+      hash = {};
+    }
+    if (Ember.isEmpty(hash.data)) {
+      hash.data = {};
+    }
+    hash.data.auth_token = ENV.WEEATT_AUTH_TOKEN;
+    return this._super(url, type, hash);
   }
 });
 
